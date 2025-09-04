@@ -2,238 +2,184 @@ import { useState, useEffect } from "react";
 
 const questions = [
   {
-    question: "Vilket är det vanligaste materialet för dryckesförpackningar?",
-    options: ["Plast", "Glas", "Aluminium", "Kartong"],
-    correct: 3,
-    explanation: "Kartong används ofta för dryckesförpackningar tack vare dess återvinningsbarhet och barriäregenskaper."
-  },
-  {
-    question: "Vad är primärförpackningens huvudsyfte?",
-    options: ["Skydda produkten under transport", "Marknadsföra produkten", "Direkt kontakt med produkten", "Underlätta lagring i butik"],
-    correct: 2,
-    explanation: "Primärförpackningen är i direkt kontakt med produkten och skyddar den från yttre påverkan."
-  },
-  {
-    question: "Vilken förpackningstyp är mest hållbar ur miljösynpunkt?",
-    options: ["Engångsplast", "Återvunnen kartong", "Aluminiumfolie", "Flergångsglas"],
-    correct: 3,
-    explanation: "Flergångsglas kan återanvändas många gånger och har låg miljöpåverkan om det återanvänds effektivt."
-  },
-  {
-    question: "Vad innebär cirkulär ekonomi inom förpackning?",
-    options: ["Att förpackningar bränns efter användning", "Att förpackningar återanvänds och återvinns", "Att förpackningar exporteras", "Att förpackningar tillverkas av nya material"],
-    correct: 1,
-    explanation: "Cirkulär ekonomi innebär att material återanvänds och återvinns för att minska avfall och resursförbrukning."
-  },
-  {
-    question: "Vilken funktion har en sekundärförpackning?",
-    options: ["Skydda produkten vid transport och hantering", "Direkt kontakt med produkten", "Visa produktinformation", "Förhindra stöld"],
-    correct: 0,
-    explanation: "Sekundärförpackningen används för att skydda och samla flera primärförpackningar vid transport och hantering."
-  },
-  {
-    question: "Vilket är ett vanligt problem med plastförpackningar?",
-    options: ["De är dyra att producera", "De är svåra att återvinna", "De är tunga", "De är inte vattentäta"],
-    correct: 1,
-    explanation: "Plastförpackningar kan vara svåra att återvinna om de består av flera olika plasttyper eller är förorenade."
-  },
-  {
-    question: "Vad är en fördel med smarta förpackningar?",
-    options: ["De kan visa produktens status", "De är alltid biologiskt nedbrytbara", "De är billigare än vanliga förpackningar", "De kräver ingen märkning"],
-    correct: 0,
-    explanation: "Smarta förpackningar kan till exempel visa temperatur, färskhet eller öppningsstatus och öka säkerheten."
-  },
-  {
-    question: "Vilken märkning visar att en förpackning är återvinningsbar?",
-    options: ["Gröna punkten", "CE-märkning", "Svanen", "Mobius loop (återvinningssymbolen)"],
-    correct: 3,
-    explanation: "Mobius loop är den internationella symbolen för återvinningsbara material."
-  },
-  {
-    question: "Vilken process används för att tillverka plastflaskor?",
-    options: ["Extrudering", "Formsprutning", "Blåsformning", "Stansning"],
-    correct: 2,
-    explanation: "Blåsformning är en vanlig process för att tillverka ihåliga plastförpackningar som flaskor."
-  },
-  {
-    question: "Vad är en vanlig utmaning vid förpackningsdesign?",
-    options: ["Att göra förpackningen attraktiv och funktionell", "Att undvika färg", "Att använda så mycket material som möjligt", "Att göra förpackningen svår att öppna"],
-    correct: 0,
-    explanation: "Förpackningsdesign handlar om att kombinera funktion, skydd och attraktivitet för konsumenten."
-  }
-];
-    explanation:
-      "Synkrona tester väntar på att ett test ska slutföras innan nästa körs, medan asynkrona tester kan köras parallellt utan att vänta.",
-  },
-  {
-    question: "Vad innebär det att en testsvit är idempotent?",
+    question: "Vad är ett versionshanteringssystem (VCS)?",
     options: [
-      "Testsviten kan köras flera gånger utan att ändra resultatet",
-      "Testsviten kan köras parallellt utan problem",
-      "Testsviten kan köra flera olika testsviter samtidigt",
-      "Testsviten körs bara en gång",
+      "Ett system för att hantera och spåra ändringar i kod över tid",
+      "Ett system för att hantera databaser",
+      "Ett system för att hantera användare",
+      "Ett system för att hantera nätverk",
     ],
     correct: 0,
     explanation:
-      "En idempotent testsvit betyder att tester kan köras om utan att resultatet påverkas.",
+      "Versionshanteringssystem registrerar ändringar i filer över tid och möjliggör samarbete och återställning av tidigare versioner.",
   },
   {
-    question: "Vad är syftet med Continuous Integration (CI)?",
+    question: "Vad är syftet med en README.md-fil?",
     options: [
-      "Att kontinuerligt testa och bygga kod för att upptäcka problem tidigt",
-      "Att säkerställa att koden är klar för produktion",
-      "Att förhindra kodändringar",
-      "Att skriva automatiserade tester",
+      "Att dokumentera projektet och ge instruktioner",
+      "Att lagra kodhistorik",
+      "Att hantera beroenden",
+      "Att köra tester",
     ],
     correct: 0,
     explanation:
-      "Continuous Integration innebär att man regelbundet integrerar kodändringar och kör tester för att upptäcka problem tidigt.",
+      "README.md är projektets huvuddokumentation och ger information om installation, användning och bidrag.",
   },
   {
-    question: "Vad menas med en mock i tester?",
+    question: "Vad är en merge conflict i Git?",
     options: [
-      "En simulation av ett system för att testa dess funktioner",
-      "En faktisk implementation av en funktion",
-      "En test som körs i en riktig miljö",
+      "När två grenar har ändrat samma del av en fil",
+      "När en fil tas bort",
+      "När en commit misslyckas",
+      "När en branch skapas",
+    ],
+    correct: 0,
+    explanation:
+      "En merge conflict uppstår när två grenar har ändrat samma del av en fil och Git inte kan avgöra vilken ändring som ska användas.",
+  },
+  {
+    question: "Vad är Vite?",
+    options: [
+      "Ett modernt frontend-byggverktyg",
+      "Ett testverktyg",
+      "Ett backend-ramverk",
+      "Ett databasverktyg",
+    ],
+    correct: 0,
+    explanation:
+      "Vite är ett snabbt byggverktyg för moderna frontend-projekt med snabb serverstart och HMR.",
+  },
+  {
+    question: "Vad är syftet med linting?",
+    options: [
+      "Att analysera kod för fel och stilproblem",
+      "Att kompilera kod",
+      "Att köra tester",
+      "Att skapa dokumentation",
+    ],
+    correct: 0,
+    explanation:
+      "Linting hjälper till att upprätthålla kodkvalitet och konsekvens genom att upptäcka fel och stilproblem.",
+  },
+  {
+    question: "Vad är en dev environment?",
+    options: [
+      "En miljö för utveckling och testning av kod",
+      "En produktionsmiljö",
+      "En miljö för slutanvändare",
+      "En miljö för databasbackup",
+    ],
+    correct: 0,
+    explanation:
+      "Dev environment är där utvecklare skriver och testar kod, isolerat från produktion.",
+  },
+  {
+    question: "Vad är en deployment pipeline?",
+    options: [
+      "En serie automatiserade steg från utveckling till produktion",
+      "En lista över buggar",
+      "En typ av databas",
+      "En typ av server",
+    ],
+    correct: 0,
+    explanation:
+      "Deployment pipeline automatiserar bygg, test och driftsättning av kod till produktion.",
+  },
+  {
+    question: "Vad är Docker?",
+    options: [
+      "En plattform för att köra applikationer i containrar",
+      "Ett testverktyg",
+      "Ett frontend-ramverk",
+      "Ett versionshanteringssystem",
+    ],
+    correct: 0,
+    explanation:
+      "Docker paketerar applikationer och beroenden i portabla containrar för konsekvent körning i olika miljöer.",
+  },
+  {
+    question: "Vad är en microservice?",
+    options: [
+      "En liten, oberoende tjänst som ingår i en applikation",
+      "En stor monolitisk applikation",
+      "En typ av databas",
+      "En typ av frontend-komponent",
+    ],
+    correct: 0,
+    explanation:
+      "Microservices är små, oberoende tjänster som kommunicerar över nätverk och kan driftsättas separat.",
+  },
+  {
+    question: "Vad är DRY-principen?",
+    options: [
+      "Don't Repeat Yourself – undvik upprepning av kod",
+      "Do Repeat Yourself – upprepa kod ofta",
+      "Don't Refactor Yourself – undvik refaktorering",
+      "Do Refactor Yourself – refaktorera ofta",
+    ],
+    correct: 0,
+    explanation:
+      "DRY syftar till att minska upprepning av kod och logik för bättre underhållbarhet.",
+  },
+  {
+    question: "Vad är skillnaden mellan en interpreter och en compiler?",
+    options: [
+      "Interpreter exekverar kod direkt, compiler översätter till maskinkod",
+      "Compiler exekverar kod direkt, interpreter översätter till maskinkod",
+      "Båda gör samma sak",
+      "Ingen skillnad",
+    ],
+    correct: 0,
+    explanation:
+      "Interpreter kör koden rad-för-rad, compiler översätter hela koden till maskinkod innan körning.",
+  },
+  {
+    question: "Vad är syftet med unit testing?",
+    options: [
+      "Att testa individuella enheter eller komponenter isolerat",
+      "Att testa hela systemet",
+      "Att testa användargränssnittet",
+      "Att testa integrationen mellan system",
+    ],
+    correct: 0,
+    explanation:
+      "Unit testing verifierar att varje enhet fungerar korrekt på egen hand.",
+  },
+  {
+    question: "Vad är en dummy i testning?",
+    options: [
+      "Ett platshållarobjekt som aldrig används i testet",
+      "En riktig implementation",
+      "En test som körs i produktion",
       "En test som är beroende av externa system",
     ],
     correct: 0,
     explanation:
-      "En mock är en simulering av en del av systemet som gör att vi kan testa funktioner isolerat utan att behöva köra hela systemet.",
+      "Dummy används för att uppfylla funktionssignaturen utan att påverka testets utfall.",
   },
   {
-    question: "Vad innebär TDD (Test Driven Development)?",
+    question: "Vad är syftet med end user testing (UAT)?",
     options: [
-      "Att skriva tester innan man skriver kod",
-      "Att skriva kod och sen testa den",
+      "Att faktiska användare testar systemet för att säkerställa att det uppfyller deras krav",
+      "Att utvecklare testar systemet",
+      "Att systemet testas automatiskt",
+      "Att systemet testas i produktion",
+    ],
+    correct: 0,
+    explanation:
+      "UAT fokuserar på att validera att programvaran fungerar som förväntat ur användarens perspektiv.",
+  },
+  {
+    question: "Vad innebär test-driven deployment (TDD)?",
+    options: [
+      "Att skriva tester innan kod implementeras",
+      "Att skriva kod och sedan tester",
       "Att skriva tester efter att programmet är klart",
-      "Att automatisera tester helt och hållet",
+      "Att automatisera deployment",
     ],
     correct: 0,
     explanation:
-      "TDD innebär att skriva tester först, och sedan skriva kod för att få testerna att passera.",
-  },
-  {
-    question: "Vad är en testdriven utvecklingsprocess för fördelar?",
-    options: [
-      "Snabbare utvecklingstid",
-      "Färre buggar och mer pålitlig kod",
-      "Mindre fokus på dokumentation",
-      "Färre tester behövs",
-    ],
-    correct: 1,
-    explanation:
-      "Testdriven utveckling förbättrar kodkvaliteten genom att fokusera på att lösa problem innan de inträffar.",
-  },
-  {
-    question: "Vad innebär det att en test är 'flaky'?",
-    options: [
-      "Testet misslyckas sporadiskt utan någon uppenbar anledning",
-      "Testet är mycket stabilt och pålitligt",
-      "Testet kan köras parallellt utan problem",
-      "Testet har ingen koppling till den faktiska koden",
-    ],
-    correct: 0,
-    explanation:
-      "En 'flaky' test är en test som misslyckas ibland utan att det finns någon uppenbar anledning, vilket gör den svår att lita på.",
-  },
-  {
-    question:
-      "Vad är skillnaden mellan manuell testning och automatiserad testning?",
-    options: [
-      "Manuell testning är snabbare, automatiserad är noggrannare",
-      "Manuell testning görs av människor, automatiserad görs med skript",
-      "Manuell testning används för API:er, automatiserad för UI",
-      "Det finns ingen skillnad",
-    ],
-    correct: 1,
-    explanation:
-      "Manuell testning utförs av människor som klickar eller skriver, medan automatiserad testning använder skript för att köra tester snabbt och upprepade gånger.",
-  },
-  {
-    question: "Vad är syftet med ett enhetstest (unit test)?",
-    options: [
-      "Att testa hela systemet",
-      "Att testa små, isolerade delar av koden",
-      "Att testa användargränssnittet",
-      "Att testa integrationen mellan system",
-    ],
-    correct: 1,
-    explanation:
-      "Enhetstester fokuserar på att testa små, isolerade delar av koden, som en funktion, för att säkerställa att de fungerar korrekt.",
-  },
-  {
-    question: "Vad är ett acceptanstest och vem är mest intresserad av det?",
-    options: [
-      "Ett test för att kontrollera kodkvalitet, intresserar utvecklare",
-      "Ett test för att säkerställa att produkten möter kundens krav, intresserar kunden",
-      "Ett test för att kolla prestanda, intresserar testare",
-      "Ett test för att kontrollera säkerhet, intresserar säkerhetsteamet",
-    ],
-    correct: 1,
-    explanation:
-      "Acceptanstester verifierar att produkten uppfyller kundens krav och är ofta mest intressanta för kunden eller produktägaren.",
-  },
-  {
-    question: "Vad är ett systemtest?",
-    options: [
-      "Ett test av enskilda funktioner",
-      "Ett test av hela systemet i en produktionslik miljö",
-      "Ett test av användargränssnittet",
-      "Ett test av databasen",
-    ],
-    correct: 1,
-    explanation:
-      "Systemtest testar hela systemet som en helhet i en miljö som liknar produktion för att säkerställa att allt fungerar tillsammans.",
-  },
-  {
-    question: "Vad är regressionstestning och varför är det viktigt?",
-    options: [
-      "Testar nya funktioner, viktigt för att lansera snabbt",
-      "Testar att gamla funktioner fortfarande fungerar, viktigt för stabilitet",
-      "Testar prestanda, viktigt för skalbarhet",
-      "Testar säkerhet, viktigt för dataskydd",
-    ],
-    correct: 1,
-    explanation:
-      "Regressionstestning kontrollerar att befintliga funktioner inte har påverkats negativt av nya ändringar, vilket är viktigt för att bibehålla stabilitet.",
-  },
-  {
-    question:
-      "Vad är skillnaden mellan manuella och automatiserade tester gällande hastighet och noggrannhet?",
-    options: [
-      "Manuella är snabbare men mindre noggranna",
-      "Automatiserade är snabbare och ofta mer noggranna",
-      "Manuella är noggrannare men långsammare",
-      "Det finns ingen skillnad",
-    ],
-    correct: 1,
-    explanation:
-      "Automatiserade tester körs snabbare och är mer konsekventa, medan manuella tester kan vara långsammare men bättre för explorativ testning.",
-  },
-  {
-    question: "Vad gör expect().toBe() i Vitest?",
-    options: [
-      "Jämför två värden för exakt likhet",
-      "Kontrollerar om ett test körs utan fel",
-      "Simulerar ett API-anrop",
-      "Renderar en komponent",
-    ],
-    correct: 0,
-    explanation:
-      "expect().toBe() används i Vitest för att jämföra två värden och säkerställa att de är exakt lika, t.ex. expect(2 + 2).toBe(4).",
-  },
-  {
-    question: "Vad gör render() i ett komponenttest?",
-    options: [
-      "Skickar ett HTTP-anrop",
-      "Ritar en komponent i DOM för testning",
-      "Mockar en API-respons",
-      "Kör ett enhetstest",
-    ],
-    correct: 1,
-    explanation:
-      "render() används i bibliotek som Testing Library för att rendera en React-komponent i en virtuell DOM för att testa dess beteende.",
+      "TDD innebär att skriva tester först, sedan kod för att få testerna att passera.",
   },
   {
     question: "Vad används screen.getByText() och fireEvent.click() till?",
@@ -248,8 +194,7 @@ const questions = [
       "screen.getByText() används för att hitta element baserat på textinnehåll, och fireEvent.click() simulerar ett klick på ett element i tester.",
   },
   {
-    question:
-      "Vad är skillnaden på komponenttest och integrationstest i React?",
+    question: "Vad är skillnaden mellan komponenttest och integrationstest?",
     options: [
       "Komponenttest testar flera komponenter, integrationstest testar en",
       "Komponenttest testar en komponent isolerat, integrationstest testar flera tillsammans",
@@ -537,7 +482,6 @@ const questions = [
       "Parprogrammering innebär att två personer kodar tillsammans, medan mobbprogrammering involverar hela teamet för att samarbeta och förbättra kodkvaliteten.",
   },
 ];
-
 function shuffleArray(array) {
   const newArray = [...array];
   for (let i = newArray.length - 1; i > 0; i--) {
